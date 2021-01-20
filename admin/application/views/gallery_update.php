@@ -45,7 +45,6 @@
                                         <br />
                                     <?php } ?>
                                 </div>
-
                             </div>
                             <button type="submit" name="submit" class="btn btn-success btn-user btn-block">Save</button>
                         </form>
