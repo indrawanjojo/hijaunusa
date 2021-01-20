@@ -47,7 +47,7 @@
             <h6 class="collapse-header">Menu Components:</h6>
             <a class="collapse-item" href="<?php echo base_url('category') ?>">Categories</a>
             <a class="collapse-item" href="<?php echo base_url('category/sub_category') ?>">Sub Categories</a>
-            <a class="collapse-item" href="#">Contact Us</a>
+            <a class="collapse-item" href="<?php echo base_url('contact/setting') ?>">Contact Us</a>
         </div>
     </div>
 </li>
