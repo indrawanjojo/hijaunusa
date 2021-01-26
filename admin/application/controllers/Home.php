@@ -7,17 +7,41 @@ class Home extends CI_Controller {
 		parent::__construct();
 				$this->CI =& get_instance();
 				$this->load->model('banner_model');
+				$this->load->model('setting_model');
         $this->load->library('cls_login');
 
     }
 
     public function index() {
+
+			$dataVisit = $this->setting_model->get_data_visitor();
+			$dataDeviceVisit = $this->setting_model->getVisitorDevice();
+			$dataDevice = $this->setting_model->getDevice();
+			$dataResult['data'] = json_encode($dataVisit);
+
+			$totVis = $this->setting_model->totalVisitor();
+			$totVisOnDay = $this->setting_model->totalVisitorOnDay();
+
+			foreach ($dataDeviceVisit as $dataDeviceVisit) {
+				$dataDV[] = $dataDeviceVisit->device;
+			}
+
+			foreach ($dataDevice as $dataDevice) {
+				$dataDeviceVis[] = $dataDevice->browser;
+			}
+
+			$dataResult['dataDevVis'] = json_encode($dataDV);
+			$dataResult['dataDevice'] = json_encode($dataDeviceVis);
+
+			$dataResult['totalVisitor'] = json_decode($totVis->total_visitor);
+			$dataResult['totalVisitorOnDay'] = json_decode($totVisOnDay->total_visitor);
+
         if ($this->agent->is_mobile()) {
-            $this->load->view('home');
+            $this->load->view('home', $dataResult);
         } elseif ($this->agent->is_mobile('ipad')) {
-            $this->load->view('home');
+            $this->load->view('home', $dataResult);
         } else {
-            $this->load->view('home');
+            $this->load->view('home', $dataResult);
         }
     }
 

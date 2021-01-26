@@ -49,8 +49,8 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-4 d-none d-lg-block bg-login-image" style="background: url(<?php echo base_url('assets/img/') ?>hijaunusalogo.jpeg);background-size: cover;"></div>
-                            <div class="col-lg-8">
+                            <div class="col-lg-3 d-none d-lg-block bg-login-image" style="background: url(<?php echo base_url('assets/img/') ?>hijaunusalogo.jpeg);background-size: contain;"></div>
+                            <div class="col-lg-9">
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Admin Hijau Nusa!</h1>

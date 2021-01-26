@@ -62,5 +62,49 @@ class Setting_model extends CI_Model
       $this->db->update($this->table, $data);
     }
 
+    public function getAllSubscribe()
+    {
+      $query = $this->db->query('SELECT * FROM subscribe ORDER BY id DESC');
+      return $query->result();
+    }
+
+    public function getAllVisitor()
+    {
+      $query = $this->db->query('SELECT * FROM visitor ORDER BY id DESC');
+      return $query->result();
+    }
+
+    public function get_data_visitor()
+    {
+      // $query = $this->db->query('SELECT COUNT(*) as total_visitor FROM visitor WHERE YEAR(date) = 2021 GROUP BY  MONTH(date)');
+      $query = $this->db->query('SELECT date, hits, browser FROM visitor ORDER BY id DESC');
+      return $query->result();
+
+    }
+
+    public function getVisitorDevice()
+    {
+      $query = $this->db->query('SELECT COUNT(os) as device FROM visitor GROUP BY browser');
+      return $query->result();
+    }
+
+    public function getDevice()
+    {
+      $query = $this->db->query('SELECT DISTINCT browser FROM visitor');
+      return $query->result();
+    }
+
+    public function totalVisitor()
+    {
+      $query = $this->db->query('SELECT count(id) as total_visitor FROM visitor');
+      return $query->row();
+    }
+
+    public function totalVisitorOnDay()
+    {
+      $date = date('Y-m-d');
+      $query = $this->db->query('SELECT count(id) as total_visitor FROM visitor WHERE date = "'.$date.'"');
+      return $query->row();
+    }
 
   }

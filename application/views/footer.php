@@ -51,7 +51,12 @@
 
         <div class="col-lg-3">
           <h4>Address Maps</h4>
-          <div class="mapouter"><div class="gmap_canvas"><iframe width="300" height="250" id="gmap_canvas" src="https://maps.google.com/maps?q=pondok%20safari%20indah&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://elitetorrent-es.com">elitetorrent</a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href="https://google-map-generator.com">google-map-generator.com</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:250px;width:300px;}</style></div></div>
+          <div class="mapouter">
+            <div class="gmap_canvas">
+              <iframe width="300" height="250" id="gmap_canvas" src="https://maps.google.com/maps?q=pondok%20safari%20indah&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+              </iframe>
+            </div>
+          </div>
         </div>
 
       </div>
