@@ -6,26 +6,22 @@
 
         <div class="col-lg-3">
           <div class="footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem.</p>
+            <h4>About Us</h4>
+            <p><?= $contactUsList->description ?></p>
           </div>
 
           <div class="footer-links">
             <h4>Contact Us</h4>
-            <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br>
+            <p><?= $contactUsList->address ?> <br>
               <strong>Phone:</strong> +1 5589 55488 55<br>
               <strong>Email:</strong> info@example.com<br>
             </p>
           </div>
 
           <div class="social-links">
-            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            <?php foreach ($sosmedList as $sosmedList) {?>
+              <a href="<?= $sosmedList->url ?>" class="<?= $sosmedList->name ?>"><?= $sosmedList->icon ?></a>
+            <?php } ?>
           </div>
         </div>
 
@@ -53,7 +49,7 @@
           <h4>Address Maps</h4>
           <div class="mapouter">
             <div class="gmap_canvas">
-              <iframe width="300" height="250" id="gmap_canvas" src="https://maps.google.com/maps?q=pondok%20safari%20indah&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+              <iframe width="300" height="250" id="gmap_canvas" src="<?= $contactUsList->url_map ?>" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
               </iframe>
             </div>
           </div>
@@ -69,20 +65,40 @@
       &copy; Copyright <strong>Hijau Nusa Flooring</strong> 2021. All Rights Reserved
     </div>
     <div class="credits">
-      <!--
-        All the links in the footer should remain intact.
-        You can delete the links only if you purchased the pro version.
-        Licensing information: https://bootstrapmade.com/license/
-        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Rapid
-      -->
       Powered by <a href="#">Grow Technology</a>
     </div>
   </div>
 </footer><!-- #footer -->
 
-<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-<!-- Uncomment below i you want to use a preloader -->
-<!-- <div id="preloader"></div> -->
+<!-- <style>
+		    #floating-button{
+		        width: 55px;
+		        height: 55px;
+		        border-radius: 50%;
+		        background: #db4437;
+		        position: fixed;
+		        bottom: 30px;
+		        right: 30px;
+		        cursor: pointer;
+		        box-shadow: 0px 2px 5px #666;
+		        background: url(<?php echo base_url('assets') ?>/images/wa-blue.png);
+		        background-size:cover;
+		        background-repeat:no-repeat;
+		        z-index:9999;
+		    }
+		    #floating-button:hover{
+		        border:2px solid white;
+		    }
+		</style>
+		<a href="https://web.whatsapp.com/send?phone=628115201190&text=Saya ingin mengetahui informasi lebih lanjut tentang barang-barang di Tokuonline" target="_blank" id="floating-button" title="Whatsapp"></a> -->
+<style>
+  .back-to-top i {
+      padding-top: 5px;
+      color: #fff;
+      font-size: 35px;
+  }
+</style>
+<a href="https://api.whatsapp.com/send?phone=6282298190700&text=Hai%20Admin,%20Saya%20ingin%20mengetahui%20informasi%20lebih%20lanjut%20tentang%20barang%20-%20barang%20di%20Hijau Nusa Flooring" target="_blank" class="back-to-top"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
 
 <!-- JavaScript Libraries -->
 <script src="<?php echo base_url('assets') ?>/lib/jquery/jquery.min.js"></script>

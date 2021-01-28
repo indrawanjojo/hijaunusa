@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
 
+	public function __construct(){
+		parent::__construct();
+		$this->CI = &get_instance();
+		$this->load->model('home_model');
+
+	}
+
 	public function index()
 	{
 
@@ -17,8 +24,6 @@ class Home extends CI_Controller {
     // Cek berdasarkan IP, apakah user sudah pernah mengakses hari ini
     $s = $this->db->query("SELECT * FROM visitor WHERE ip_address='".$ip."' AND date='".$date."'")->num_rows();
     $ss = isset($s)?($s):0;
-
-
 
     // Kalau belum ada, simpan data user tersebut ke database
     if($ss == 0){
@@ -46,6 +51,16 @@ class Home extends CI_Controller {
     $data['totalpengunjung']=$totalpengunjung;
     $data['pengunjungonline']=$pengunjungonline;
 
-		$this->load->view('home');
+		$contactUsList = $this->home_model->getContactUs();
+		$sosmedList = $this->home_model->getSosmed();
+		$bannerData = $this->home_model->getDataBanner();
+
+		$data = array(
+			'contactUsList' => $contactUsList,
+			'sosmedList' => $sosmedList,
+			'bannerData' => $bannerData
+		);
+
+		$this->load->view('home', $data);
 	}
 }

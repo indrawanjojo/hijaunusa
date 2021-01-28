@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<?php $path = $this->general->path(); ?>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -27,18 +28,9 @@
   <!-- Main Stylesheet File -->
   <link href="<?php echo base_url('assets') ?>/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-    Theme Name: Rapid
-    Theme URL: https://bootstrapmade.com/rapid-multipurpose-bootstrap-business-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
 </head>
 
 <body>
-  <!--==========================
-  Header
-  ============================-->
   <header id="header">
 
     <div id="topbar">
@@ -62,7 +54,8 @@
 
       <nav class="main-nav float-right d-none d-lg-block">
         <ul>
-          <li class="active"><a href="#intro">Home</a></li>
+          <li class="active"><a href="<?php echo base_url() ?>">Home</a></li>
+          <li><a href="<?php echo base_url('product') ?>">Product</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#portfolio">Portfolio</a></li>

@@ -15,17 +15,20 @@
 
                             <div class="form-group row">
                                 <div class="col-sm-12 mb-3 mb-sm-0">
+                                  <label>Address</label>
                                     <textarea type="text" class="form-control" id="txtAddress" name="txtAddress" placeholder="Input Address" value="<?= $settingInfo->address ?>"><?= $settingInfo->address ?></textarea>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <div class="col-sm-12 mb-3 mb-sm-0">
+                                  <label>Province</label>
                                  <?php echo form_dropdown('provinsi',  $provinsidata, $provinsiselect, 'class="form-control input-lg-rounded" placeholder="Provinsi" id="province"'); ?>
                                </div>
                              </div>
                              <div class="form-group row">
                                <div class="col-sm-12 mb-3 mb-sm-0">
+                                 <label>City</label>
                                  <select class="form-control input-lg-rounded" id="city" name="oricity" required>
                                      <?php if (!$kotaselect) : ?>
                                          <option></option>
@@ -38,21 +41,26 @@
 
                             <div class="form-group row">
                                 <div class="col-sm-12 mb-3 mb-sm-0">
+                                  <label>Postal Code</label>
                                     <input type="text" class="form-control" id="txtPosCode" name="txtPosCode" placeholder="Input Pos Code" value="<?= $settingInfo->pos_code ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12 mb-3 mb-sm-0">
+                                  <label>Website Name</label>
                                     <input type="text" class="form-control" id="txtWebName" name="txtWebName" placeholder="Input Web Name" value="<?= $settingInfo->web_name ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12 mb-3 mb-sm-0">
-                                    <textarea type="text" class="form-control" id="txtDesc" name="txtDesc" placeholder="Input Description" value="<?= $settingInfo->description ?>"><?= $settingInfo->description ?></textarea>
+                                  <label>Description</label>
+                                    <textarea id="ckeditor" name="txtDesc" value="<?= $settingInfo->description ?>" required><?= $settingInfo->description ?></textarea>
+                                    <!-- <textarea type="text" class="form-control" id="txtDesc" name="txtDesc" placeholder="Input Description" value="<?= $settingInfo->description ?>"><?= $settingInfo->description ?></textarea> -->
                                 </div>
                             </div>
                             <div class="form-group row">
                               <div class="col-sm-12">
+                                <label>Logo</label>
                                   <input type="file" class="input form-control-file" <?php echo form_error('image') ? 'is-invalid':'' ?> name="image">
                                   <div class="invalid-feedback">
                                       <?php echo form_error('image') ?>
@@ -61,21 +69,25 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12 mb-3 mb-sm-0">
+                                  <label>Url Website</label>
                                     <input type="text" class="form-control" id="txtUrl" name="txtUrl" placeholder="Input Url" value="<?= $settingInfo->url ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12 mb-3 mb-sm-0">
+                                  <label>Lattitude</label>
                                     <input type="text" class="form-control" id="txtLat" name="txtLat" placeholder="Input Lattitude" value="<?= $settingInfo->lattitude ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12 mb-3 mb-sm-0">
+                                  <label>Longitude</label>
                                     <input type="text" class="form-control" id="txtLong" name="txtLong" placeholder="Input Longitude" value="<?= $settingInfo->longitude ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12 mb-3 mb-sm-0">
+                                  <label>Url Embed Maps</label>
                                     <input type="text" class="form-control" id="txtUrlMap" name="txtUrlMap" placeholder="Input Url Map" value="<?= $settingInfo->url_map ?>">
                                 </div>
                             </div>
@@ -127,4 +139,14 @@
         });
 
     });
+</script>
+
+<script src="<?php echo base_url('assets/ckeditor/ckeditor.js');?>"></script>
+<script type="text/javascript">
+    $(function () {
+            CKEDITOR.replace('ckeditor',{
+                filebrowserImageBrowseUrl : '<?php echo base_url('assets/kcfinder/browse.php');?>',
+                height: '400px'
+            });
+        });
 </script>

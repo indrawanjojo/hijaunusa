@@ -100,22 +100,9 @@
       </div>
       <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1263px;height:520px;overflow:hidden;">
           <div>
-              <img data-u="image" src="<?php echo base_url('assets/') ?>img/011.jpg" />
-          </div>
-          <div>
-              <img data-u="image" src="<?php echo base_url('assets/') ?>img/012.jpg" />
-          </div>
-          <div>
-              <img data-u="image" src="<?php echo base_url('assets/') ?>img/013.jpg" />
-          </div>
-          <div>
-              <img data-u="image" src="<?php echo base_url('assets/') ?>img/014.jpg" />
-          </div>
-          <div>
-              <img data-u="image" src="<?php echo base_url('assets/') ?>img/015.jpg" />
-          </div>
-          <div>
-              <img data-u="image" src="<?php echo base_url('assets/') ?>img/016.jpg" />
+            <?php foreach ($bannerData as $bannerData) { ?>
+              <img data-u="image" src="<?php echo base_url('admin/gallery_img/') ?><?php echo $bannerData->image ?>" />
+            <?php } ?>
           </div>
       </div><a data-scale="0" href="#" style="display:none;position:absolute;">responsive slider</a>
       <!-- Bullet Navigator -->
