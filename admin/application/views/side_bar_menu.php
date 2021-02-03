@@ -90,6 +90,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Home Screens:</h6>
               <a class="collapse-item" href="<?php echo base_url('home/banner') ?>">Banner</a>
+              <a class="collapse-item" href="<?php echo base_url('home/ourService') ?>">Our Service</a>
               <a class="collapse-item" href="<?php echo base_url('product') ?>">Products</a>
           </div>
       </div>

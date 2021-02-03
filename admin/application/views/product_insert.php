@@ -12,26 +12,39 @@
                         </div>
                         <form class="user"  method="POST" action="<?php echo base_url('product/add_product') ?>" enctype="multipart/form-data">
                             <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                <div class="col-sm-12 mb-3 mb-sm-0">
                                     <input type="text" class="form-control form-control-user" id="txtName" name="txtName" placeholder="Input Name" value="<?php $productInfo->name ?>">
                                 </div>
-                                <div class="col-sm-6">
-                                    <textarea type="text" class="form-control form-control-user" id="txtSynopsis" name="txtSynopsis" placeholder="Input Synopsis" value="<?php $productInfo->synopsis ?>"></textarea>
-                                </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
+                              <div class="col-sm-12 mb-3 mb-sm-0">
+                                  <select class="form-control" id="id_category" name="id_category">
+                                  <?php foreach($categoryList as $cat) : ?>
+                                      <option value="<?php echo $cat->id;?>"> <?php echo $cat->title; ?></option>
+                                  <?php endforeach; ?>
+                                  </select>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <div class="col-sm-12">
+                                  <textarea type="text" class="form-control form-control-user" id="txtSynopsis" name="txtSynopsis" placeholder="Input Synopsis" value="<?php $productInfo->synopsis ?>"></textarea>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 mb-3 mb-sm-0">
                                     <textarea type="text" class="form-control form-control-user" id="txtDesc" name="txtDesc" placeholder="Input Description" value="<?php $productInfo->description ?>"></textarea>
                                 </div>
-                                <div class="col-sm-6">
-                                    <input type="file" class="input form-control-file form-control-user" <?php echo form_error('image') ? 'is-invalid':'' ?> name="image">
-                                    <div class="invalid-feedback">
-                                        <?php echo form_error('image') ?>
-                                    </div>
-                                </div>
                             </div>
                             <div class="form-group row">
-                              <div class="col-sm-6 mb-3 mb-sm-0">
+                              <div class="col-sm-12">
+                                  <input type="file" class="input form-control-file form-control-user" <?php echo form_error('image') ? 'is-invalid':'' ?> name="image">
+                                  <div class="invalid-feedback">
+                                      <?php echo form_error('image') ?>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <div class="col-sm-12 mb-3 mb-sm-0">
                                   <input type="number" class="form-control form-control-user" id="txtPrice" name="txtPrice" placeholder="Input Price" value="<?php $productInfo->price ?>">
                               </div>
                             </div>

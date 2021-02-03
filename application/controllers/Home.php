@@ -54,11 +54,13 @@ class Home extends CI_Controller {
 		$contactUsList = $this->home_model->getContactUs();
 		$sosmedList = $this->home_model->getSosmed();
 		$bannerData = $this->home_model->getDataBanner();
+		$ourServiceData = $this->home_model->ourService();
 
 		$data = array(
 			'contactUsList' => $contactUsList,
 			'sosmedList' => $sosmedList,
-			'bannerData' => $bannerData
+			'bannerData' => $bannerData,
+			'ourService' => $ourServiceData
 		);
 
 		$this->load->view('home', $data);

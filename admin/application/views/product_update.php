@@ -33,6 +33,21 @@
                               </div>
                             </div>
                             <div class="form-group row">
+                                <div class="col-sm-12 mb-3 mb-sm-0">
+                                    <select class="form-control" id="id_category" name="id_category">
+                                        <?php
+                                        foreach ($allCategory as $listCategoryLookup) {
+                                            if ($listCategoryLookup->id == $categorySelect->id) {
+                                                echo '<option selected="selected" value="' . $categorySelect->id . '">' . $categorySelect->title . '</option>';
+                                            } else {
+                                                echo '<option value="' . $listCategoryLookup->id . '">' . $listCategoryLookup->title . '</option>';
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <div class="col-sm-12">
                                     <div class="custom-file mb-3">
                                         <input type="hidden" name="old_image" value="<?= $productInfo->image; ?>">

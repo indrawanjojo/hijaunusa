@@ -107,4 +107,28 @@ class Setting_model extends CI_Model
       return $query->row();
     }
 
+    public function getService()
+    {
+      $query = $this->db->query('SELECT * FROM service ORDER BY id DESC');
+      return $query->result();
+    }
+
+    function getDataService($id) {
+        if ($id != 0) {
+    			//kolom
+    			$query = $this->db->query('SELECT * FROM service WHERE id = ' . $id);
+
+    			return $query->row();
+    		} else {
+    			$query = $this->db->query("SELECT '' as id, '' as title, '' as synopsis, '' as icon, '' as created, '' as updated");
+
+    			return $query->row();
+    		}
+    }
+
+    public function insertService($data)
+    {
+      $this->db->insert('service', $data);
+    }
+
   }

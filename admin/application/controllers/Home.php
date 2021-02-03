@@ -166,4 +166,56 @@ class Home extends CI_Controller {
 			redirect(base_url() . 'home/banner/?n=' . $cg->encryptStr('update banner success'));
 		}
 
+		public function ourService()
+		{
+
+			$serviceInfo = $this->setting_model->getService();
+
+			$data = array(
+				'serviceInfo' => $serviceInfo
+			);
+
+			if ($this->agent->is_mobile()) {
+					$this->load->view('our_service', $data);
+			} elseif ($this->agent->is_mobile('ipad')) {
+					$this->load->view('our_service', $data);
+			} else {
+					$this->load->view('our_service', $data);
+			}
+		}
+
+		public function insert_service($ref = 0)
+		{
+			$getDataService = $this->setting_model->getDataService($ref);
+
+			$data = array (
+					'serviceInfo' => $getDataService
+			);
+
+			if ($this->agent->is_mobile()) {
+					$this->load->view('our_service_insert', $data);
+			} elseif ($this->agent->is_mobile('ipad')) {
+					$this->load->view('our_service_insert', $data);
+			} else {
+					$this->load->view('our_service_insert', $data);
+			}
+		}
+
+		public function add_service()
+		{
+			$cg = $this->cls_general;
+			$i = $this->input;
+
+			$data = array (
+				'title' => $i->post('txtTitle'),
+				'synopsis' => $i->post('txtSynopsis'),
+				'icon' => $i->post('txtSynopsis'),
+				'created' => date('Y-m-d H:i:s')
+			);
+
+			$this->setting_model->insertService($data);
+
+			redirect(base_url() . 'home/ourService/?n=' . $cg->encryptStr('insert content success'));
+		}
+
 }

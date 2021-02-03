@@ -32,4 +32,10 @@ class Home_model extends CI_Model
     return $query->result();
 	}
 
+	public function ourService()
+	{
+		$query = $this->db->query('SELECT * FROM service');
+		return $query->result();
+	}
+
 }

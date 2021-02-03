@@ -8,6 +8,7 @@ class Product extends CI_Controller {
 				$this->CI =& get_instance();
         $this->load->model('banner_model');
 				$this->load->model('product_model');
+				$this->load->model('category_model');
         $this->load->library('cls_login');
 
     }
@@ -17,7 +18,7 @@ class Product extends CI_Controller {
       $getProductList = $this->product_model->get_all();
 
       $data = array(
-        'productList' => $getProductList
+        'productList' => $getProductList,
       );
 
         if ($this->agent->is_mobile()) {
@@ -32,9 +33,11 @@ class Product extends CI_Controller {
     public function insert($ref=0)
     {
       $getDataProduct = $this->product_model->getDataProductInfo($ref);
+			$getCategory = $this->category_model->get_all();
 
       $data = array (
-          'productInfo' => $getDataProduct
+          'productInfo' => $getDataProduct,
+					'categoryList' => $getCategory
       );
 
       if ($this->agent->is_mobile()) {
@@ -66,6 +69,7 @@ class Product extends CI_Controller {
       $gambarFix = $gambar['file_name'];
 
       $data = array (
+				'id_category' => $i->post('id_category'),
         'name' => $i->post('txtName'),
         'synopsis' => $i->post('txtSynopsis'),
         'description' => $i->post('txtDesc'),
@@ -83,9 +87,13 @@ class Product extends CI_Controller {
     public function edit($ref=0)
     {
       $getDataProduct = $this->product_model->getDataProductInfo($ref);
+			$getAllCategory = $this->category_model->get_all();
+			$categorySelect = $this->category_model->getWhereDropdown($getDataProduct->id_category)[0];
 
       $data = array (
-          'productInfo' => $getDataProduct
+          'productInfo' => $getDataProduct,
+					'allCategory' => $getAllCategory,
+					'categorySelect' => $categorySelect
       );
 
       if ($this->agent->is_mobile()) {
@@ -123,6 +131,7 @@ class Product extends CI_Controller {
 
       $data = array (
         'id_product' => $i->post('txtIDProduct'),
+				'id_category' => $i->post('id_category'),
         'name' => $i->post('txtName'),
         'synopsis' => $i->post('txtSynopsis'),
         'description' => $i->post('txtDesc'),

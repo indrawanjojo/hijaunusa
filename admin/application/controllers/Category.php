@@ -51,7 +51,7 @@ class Category extends CI_Controller {
 
 		$data = array (
 			'title' => $i->post('txtTitle'),
-            'description' => $i->post('txtDesc'),
+      'description' => $i->post('txtDesc'),
 			'status' => '1',
 			'created' => date('Y-m-d H:i:s')
 		);
